@@ -1,4 +1,6 @@
-package maquina1995.mockito;
+package maquina1995.mockito.service;
+
+import maquina1995.mockito.dominio.Heroe;
 
 public interface MazmorraService {
 

@@ -1,9 +1,12 @@
-package maquina1995.mockito;
+package maquina1995.mockito.service;
 
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import maquina1995.mockito.dominio.Heroe;
+import maquina1995.mockito.dominio.Monstruo;
 
 /**
  * Clase que contiene la lógica asociada a la mazmorra donde entra el

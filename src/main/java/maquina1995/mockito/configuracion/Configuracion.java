@@ -1,4 +1,4 @@
-package maquina1995.mockito;
+package maquina1995.mockito.configuracion;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

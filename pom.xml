@@ -3,7 +3,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 						https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-
 	<groupId>maquina1995.ejemplo</groupId>
 	<artifactId>mockito</artifactId>
 	<version>1.0.0-BETA</version>
@@ -20,6 +19,7 @@
 
 		<!-- Versiones Depenencias -->
 		<junit5.version>5.6.0</junit5.version>
+		<junit.launcher.version>1.6.0</junit.launcher.version>
 		<mockito.version>3.3.0</mockito.version>
 		<spring.version>5.2.4.RELEASE</spring.version>
 	</properties>
@@ -29,7 +29,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>5.2.4.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<!-- Spring Test -->
@@ -48,17 +48,11 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Junit 5 Test Parametrizados -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-params</artifactId>
 			<version>${junit5.version}</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-runner</artifactId>
-			<version>1.6.0</version>
 			<scope>test</scope>
 		</dependency>
 

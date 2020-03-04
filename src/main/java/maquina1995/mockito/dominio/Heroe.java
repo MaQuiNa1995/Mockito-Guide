@@ -1,10 +1,31 @@
-package maquina1995.mockito;
+package maquina1995.mockito.dominio;
 
+/**
+ * Clase que representa el héroe que entra a una mazmorra
+ * 
+ * @author MaQuiNa1995
+ *
+ */
 public class Heroe {
 
+    /**
+     * Nombre del héroe
+     */
     private String nombre;
+
+    /**
+     * Daño del héroe
+     */
     private int danno;
+
+    /**
+     * Experiencia actual del héroe
+     */
     private int experiencia = 0;
+
+    /**
+     * Vida del héroe
+     */
     private int vida;
 
     public String getNombre() {

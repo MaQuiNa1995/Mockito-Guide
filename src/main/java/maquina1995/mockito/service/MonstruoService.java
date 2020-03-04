@@ -1,6 +1,8 @@
-package maquina1995.mockito;
+package maquina1995.mockito.service;
 
 import java.util.Random;
+
+import maquina1995.mockito.dominio.Monstruo;
 
 public interface MonstruoService {
 

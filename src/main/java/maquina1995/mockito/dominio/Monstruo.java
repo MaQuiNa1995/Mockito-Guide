@@ -1,4 +1,4 @@
-package maquina1995.mockito;
+package maquina1995.mockito.dominio;
 
 /**
  * Clase que representa la información de un enemigo de la mazmorra
@@ -62,6 +62,14 @@ public class Monstruo {
     public Monstruo setExperiencia(int experiencia) {
 	this.experiencia = experiencia;
 	return this;
+    }
+
+    /**
+     * Método usado para poner el nombre a los test generados exclusivamente
+     */
+    @Override
+    public String toString() {
+	return nombre;
     }
 
 }

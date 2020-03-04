@@ -1,4 +1,4 @@
-package maquina1995.mockito;
+package maquina1995.mockito.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import maquina1995.mockito.configuracion.Configuracion;
+import maquina1995.mockito.dominio.Heroe;
+import maquina1995.mockito.dominio.Monstruo;
+
 /**
  * Clase de test para probar unitariamente la funcionalidad de:
  * {@link MazmorraService}
@@ -30,7 +34,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
  * configuración a usar de spring para la resolucion de los beans en el
  * contenedor
  * <p>
- * En Junit4 se usaba {@link org.junit.runner.RunWith} pero se reemplazo por
+ * En Junit4 se usaba org.junit.runner.RunWith pero se reemplazo por
  * {@link ExtendWith} porque esta solo permite indicar una clase
  * 
  * @author MaQuiNa1995
@@ -78,15 +82,23 @@ public class MazmorraServiceTest {
      * Para ello hacemos uso de la anotación {@link ParameterizedTest} y generamos
      * los monstruos a traves de {@link MethodSource}
      * 
-     * @param monstruo
+     * @param monstruo {@link Monstruo} recuperado del metodo generarMonstruos()
      */
     @ParameterizedTest
     @MethodSource("generarMonstruos")
     public void entrarMazmorrarTest(Monstruo monstruo) {
 
+	// Usamos mockito para decir que cuando se ejecute dentro de nuestro objeto
+	// mockeado el metodo cogerMounstruoRandom (que tira de otro objeto
+	// "dependencia")
+	// escupa el objeto que obtenemos del metodo que alimenta este test para
+	// eliminar la aleatoriedad del metodo y poder probar todos los monstruos
 	Mockito.when(monstruoService.cogerMounstruoRandom()).thenReturn(monstruo);
 
+	// Probamos el método
 	cut.entrarMazmorra(heroe);
+
+	// Usamos una asunción para que en caso de que falle , skipee el test
 	Assumptions.assumeTrue(heroe.getExperiencia() != 0);
     }
 
@@ -97,20 +109,35 @@ public class MazmorraServiceTest {
      * Para poder experimentar nuevas incorporaciones y probar el comportamiento de
      * los actuales frente a un héroe con determinadas características
      * 
-     * @return {@link Stream<Monstruo>} stream de monstruos que alimenta el test
+     * @return {@link Stream} de {@link Monstruo} que alimenta el test
      *         {@link #entrarMazmorrarTest(Monstruo)}
      */
     private static Stream<Monstruo> generarMonstruos() {
 
 	List<Monstruo> listaMounstruos = new ArrayList<>();
 
-	Monstruo mounstruo = new Monstruo().setNombre("Troll").setDanno(200).setVida(1000).setExperiencia(500);
+	Monstruo mounstruo = new Monstruo()
+		.setNombre("Troll")
+		.setDanno(200)
+		.setVida(1000)
+		.setExperiencia(500);
+	
 	listaMounstruos.add(mounstruo);
 
-	mounstruo = new Monstruo().setNombre("Esqueleto").setDanno(100).setVida(500).setExperiencia(250);
+	mounstruo = new Monstruo().
+		setNombre("Esqueleto")
+		.setDanno(100)
+		.setVida(500)
+		.setExperiencia(250);
+	
 	listaMounstruos.add(mounstruo);
 
-	mounstruo = new Monstruo().setNombre("Goblin").setDanno(50).setVida(250).setExperiencia(125);
+	mounstruo = new Monstruo()
+		.setNombre("Goblin")
+		.setDanno(50)
+		.setVida(250)
+		.setExperiencia(125);
+	
 	listaMounstruos.add(mounstruo);
 
 	return listaMounstruos.stream();
