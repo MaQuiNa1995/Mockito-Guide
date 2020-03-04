@@ -9,7 +9,7 @@ import maquina1995.mockito.dominio.Heroe;
 import maquina1995.mockito.dominio.Monstruo;
 
 /**
- * Clase que contiene la lÃ³gica asociada a la mazmorra donde entra el
+ * Clase que contiene la lógica asociada a la mazmorra donde entra el
  * {@link Heroe}
  * 
  * @author MaQuiNa1995
@@ -39,11 +39,11 @@ public class MazmorraServiceImpl implements MazmorraService {
     }
 
     /**
-     * MÃ©todo usado para subir la experiencia del hÃ©roe si estÃ¡ vivo
+     * Método usado para subir la experiencia del héroe si estÃ¡ vivo
      * 
      * @param heroe               {@link Heroe} objeto que representa al heroe
      * @param experienciaMonstruo entero que representa la experiencia que gana el
-     *                            hÃ©roe en caso de que estÃ© vivo
+     *                            héroe en caso de que esté vivo
      * 
      */
     private void subirExperiencia(Heroe heroe, int experienciaMonstruo) {
@@ -55,31 +55,31 @@ public class MazmorraServiceImpl implements MazmorraService {
     }
 
     /**
-     * MÃ©todo que representa el combate entre el {@link Heroe} y un {@link Monstruo}
+     * Método que representa el combate entre el {@link Heroe} y un {@link Monstruo}
      * 
      * @param heroe    {@link Heroe} objeto que representa al heroe
-     * @param monstruo {@link Monstruo} objeto que representa al hÃ©roe
+     * @param monstruo {@link Monstruo} objeto que representa al héroe
      * 
-     * @return booleano que representa el exito o no del hÃ©roe en el combate
+     * @return booleano que representa el exito o no del héroe en el combate
      */
     private boolean combatir(Heroe heroe, Monstruo monstruo) {
 
 	LOGGER.info("Empieza el combate entre " + heroe.getNombre() + " y " + monstruo.getNombre());
 
-	// Marcamos un booleano para indicar si el hÃ©roe es vencedor
+	// Marcamos un booleano para indicar si el héroe es vencedor
 	boolean heroeVencedor = Boolean.FALSE;
 
-	// Creamos un booleano para indicar si se ha muerto el hÃ©roe o el monstruo
+	// Creamos un booleano para indicar si se ha muerto el héroe o el monstruo
 	boolean isAlgunoMuerto = Boolean.FALSE;
 
 	// bucle que simula la pelea entre el heroe y el mounstruo
 	do {
 
-	    // El hÃ©roe ataca primero
+	    // El héroe ataca primero
 	    int vidaRestanteMounstruo = monstruo.getVida() - heroe.getDanno();
 	    monstruo.setVida(vidaRestanteMounstruo);
 
-	    LOGGER.info("El hÃ©roe ataca, vida restante del monstruo: " + vidaRestanteMounstruo);
+	    LOGGER.info("El héroe ataca, vida restante del monstruo: " + vidaRestanteMounstruo);
 
 	    // si el monstruo ha muerto no puede atacar
 	    if (vidaRestanteMounstruo > 0) {
@@ -87,9 +87,9 @@ public class MazmorraServiceImpl implements MazmorraService {
 		int vidaRestanteHeroe = heroe.getVida() - monstruo.getDanno();
 		heroe.setVida(vidaRestanteHeroe);
 
-		LOGGER.info("El " + monstruo.getNombre() + " ataca, vida restante del hÃ©roe: " + vidaRestanteHeroe);
+		LOGGER.info("El " + monstruo.getNombre() + " ataca, vida restante del héroe: " + vidaRestanteHeroe);
 	    } else {
-		// como el mounstruo ha muerto marcamos que el hÃ©roe es vencedor
+		// como el mounstruo ha muerto marcamos que el héroe es vencedor
 		heroeVencedor = Boolean.TRUE;
 	    }
 

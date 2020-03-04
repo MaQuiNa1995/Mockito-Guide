@@ -1,10 +1,10 @@
 package maquina1995.mockito.dominio;
 
 /**
- * Clase que representa la informaci√≥n de un enemigo de la mazmorra
+ * Clase que representa la informaciÛn de un enemigo de la mazmorra
  * <p>
  * Esta clase hace uso de la api funcional para poder dejar estable el objeto a
- * traves de una concatenaci√≥n de setters en una sola l√≠nea
+ * traves de una concatenaciÛn de setters en una sola l√≠nea
  * 
  * @author MaQuiNa1995
  *
@@ -16,7 +16,7 @@ public class Monstruo {
      */
     private String nombre;
     /**
-     * Da√±o que tiene el monstruo
+     * DaÒo que tiene el monstruo
      */
     private int danno;
     /**
@@ -65,7 +65,7 @@ public class Monstruo {
     }
 
     /**
-     * M√©todo usado para poner el nombre a los test generados exclusivamente
+     * MÈtodo usado para poner el nombre a los test generados exclusivamente
      */
     @Override
     public String toString() {

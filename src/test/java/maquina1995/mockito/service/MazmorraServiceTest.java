@@ -6,6 +6,7 @@ import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -28,7 +29,8 @@ import maquina1995.mockito.dominio.Monstruo;
  * como por ejemplo:
  * <p>
  * <LI>{@link MockitoExtension} para poder usar la funcionalidad de mockito</LI>
- * <LI>{@link SpringExtension} para poder usar la inyecci√≥n de dependencias</LI>
+ * <LI>{@link SpringExtension} para poder usar la inyecciÛn de dependencias de
+ * spring</LI>
  * <p>
  * {@link ContextConfiguration} sirve para indicar donde se encuentra la
  * configuraci√≥n a usar de spring para la resolucion de los beans en el
@@ -86,6 +88,7 @@ public class MazmorraServiceTest {
      */
     @ParameterizedTest
     @MethodSource("generarMonstruos")
+    @DisplayName("Test para probar entrarMazmorrarTest() con distintos monstruos")
     public void entrarMazmorrarTest(Monstruo monstruo) {
 
 	// Usamos mockito para decir que cuando se ejecute dentro de nuestro objeto
@@ -95,10 +98,10 @@ public class MazmorraServiceTest {
 	// eliminar la aleatoriedad del metodo y poder probar todos los monstruos
 	Mockito.when(monstruoService.cogerMounstruoRandom()).thenReturn(monstruo);
 
-	// Probamos el m√©todo
+	// Probamos el mÈtodo
 	cut.entrarMazmorra(heroe);
 
-	// Usamos una asunci√≥n para que en caso de que falle , skipee el test
+	// Usamos una asunciÛn para que en caso de que falle , skipee el test
 	Assumptions.assumeTrue(heroe.getExperiencia() != 0);
     }
 
@@ -116,28 +119,16 @@ public class MazmorraServiceTest {
 
 	List<Monstruo> listaMounstruos = new ArrayList<>();
 
-	Monstruo mounstruo = new Monstruo()
-		.setNombre("Troll")
-		.setDanno(200)
-		.setVida(1000)
-		.setExperiencia(500);
-	
+	Monstruo mounstruo = new Monstruo().setNombre("Troll").setDanno(200).setVida(1000).setExperiencia(500);
+
 	listaMounstruos.add(mounstruo);
 
-	mounstruo = new Monstruo().
-		setNombre("Esqueleto")
-		.setDanno(100)
-		.setVida(500)
-		.setExperiencia(250);
-	
+	mounstruo = new Monstruo().setNombre("Esqueleto").setDanno(100).setVida(500).setExperiencia(250);
+
 	listaMounstruos.add(mounstruo);
 
-	mounstruo = new Monstruo()
-		.setNombre("Goblin")
-		.setDanno(50)
-		.setVida(250)
-		.setExperiencia(125);
-	
+	mounstruo = new Monstruo().setNombre("Goblin").setDanno(50).setVida(250).setExperiencia(125);
+
 	listaMounstruos.add(mounstruo);
 
 	return listaMounstruos.stream();
