@@ -14,7 +14,7 @@ public class MonstruoServiceImpl implements MonstruoService {
     /**
      * Lista que contiene la lista de mounstruos
      */
-    private List<Monstruo> listaMonstruos = new ArrayList<>();;
+    private List<Monstruo> listaMonstruos = new ArrayList<>();
 
     /**
      * Constructor por defecto en el que se rellena la lista de mounstruos
@@ -48,6 +48,13 @@ public class MonstruoServiceImpl implements MonstruoService {
 
 	mounstruo = new Monstruo().setNombre("Goblin").setDanno(50).setVida(250).setExperiencia(125);
 	listaMonstruos.add(mounstruo);
+
+    }
+
+    @Override
+    public Monstruo crearMonstruoPersonalizado(String nombre, int danno, int vida, int experiencia) {
+
+	throw new UnsupportedOperationException("Método no implementado, vuelve en 1 semana ;)");
 
     }
 

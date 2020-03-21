@@ -29,7 +29,7 @@ import maquina1995.mockito.dominio.Monstruo;
  * como por ejemplo:
  * <p>
  * <LI>{@link MockitoExtension} para poder usar la funcionalidad de mockito</LI>
- * <LI>{@link SpringExtension} para poder usar la inyecci�n de dependencias de
+ * <LI>{@link SpringExtension} para poder usar la inyecci�n de dependencias de
  * spring</LI>
  * <p>
  * {@link ContextConfiguration} sirve para indicar donde se encuentra la
@@ -47,16 +47,21 @@ import maquina1995.mockito.dominio.Monstruo;
 public class MazmorraServiceTest {
 
     /**
-     * Sirve para crear mocks es decir "objetos dependencia" de las que hace uso
-     * nuestro objeto anotado con {@link InjectMocks}
+     * Sirve para hacer mocks de objetos para ser usados con mockito
+     * <p>
+     * Adicionalmente si tenemos un objeto anotado con {@link InjectMocks} sirve
+     * tambien para marcar como inyectables los mocks que hemos creado (solo si
+     * estos son realmente una dependencia del otro objeto)
+     * 
+     * <p>
+     * Es decir para mockear las dependencias de este
      */
     @Mock
     private MonstruoServiceImpl monstruoService;
 
     /**
      * {@link InjectMocks} sirve para decirle a mockito donde inyectar los mocks que
-     * hemos creado con {@link @Mock}
-     * 
+     * hemos creado con {@link @Mock} o {@link @Spy}
      */
     @InjectMocks
     private MazmorraServiceImpl cut = new MazmorraServiceImpl();
@@ -67,8 +72,9 @@ public class MazmorraServiceTest {
     private Heroe heroe;
 
     /**
-     * Cada vez que invoquemos a un método nuevo queremos resetear los atributos de
-     * nuestro héroe asique anotamos este método con {@link BeforeEach}
+     * Queremos tener una instancia por defecto antes de ejecutar cada test para
+     * cepcionarnos que cada test es independiente de otro asique recurrimos al
+     * {@link BeforeEach} para ejecutar este metodo antes de cada test
      */
     @BeforeEach
     public void inicializarHeroe() {
@@ -98,10 +104,10 @@ public class MazmorraServiceTest {
 	// eliminar la aleatoriedad del metodo y poder probar todos los monstruos
 	Mockito.when(monstruoService.cogerMounstruoRandom()).thenReturn(monstruo);
 
-	// Probamos el m�todo
+	// Probamos el método
 	cut.entrarMazmorra(heroe);
 
-	// Usamos una asunci�n para que en caso de que falle , skipee el test
+	// Usamos una asunción para que en caso de que falle , skipee el test
 	Assumptions.assumeTrue(heroe.getExperiencia() != 0);
     }
 
@@ -119,18 +125,19 @@ public class MazmorraServiceTest {
 
 	List<Monstruo> listaMounstruos = new ArrayList<>();
 
+	// Se crea un troll
 	Monstruo mounstruo = new Monstruo().setNombre("Troll").setDanno(200).setVida(1000).setExperiencia(500);
-
 	listaMounstruos.add(mounstruo);
 
+	// Se crea un esqueleto
 	mounstruo = new Monstruo().setNombre("Esqueleto").setDanno(100).setVida(500).setExperiencia(250);
-
 	listaMounstruos.add(mounstruo);
 
+	// Se crea un goblin
 	mounstruo = new Monstruo().setNombre("Goblin").setDanno(50).setVida(250).setExperiencia(125);
-
 	listaMounstruos.add(mounstruo);
 
+	// Se devuelve un stream que será consumido por 1 test
 	return listaMounstruos.stream();
     }
 }
