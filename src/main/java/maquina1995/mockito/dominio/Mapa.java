@@ -1,5 +1,9 @@
 package maquina1995.mockito.dominio;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Clase que representa el mapa a usar en la mazmorra
  * <p>
@@ -9,39 +13,24 @@ package maquina1995.mockito.dominio;
  * @author MaQuiNa1995
  *
  */
+@Builder
+@Setter
+@Getter
 public class Mapa {
 
-    /**
-     * Representa el nombre del mapa
-     */
-    private String nombre;
+	/**
+	 * Representa el nombre del mapa
+	 */
+	private String nombre;
 
-    /**
-     * Representa las salas que tiene el mapa
-     */
-    private int salas;
+	/**
+	 * Representa las salas que tiene el mapa
+	 */
+	private Integer salas;
 
-    public String getNombre() {
-	return nombre;
-    }
-
-    public Mapa setNombre(String nombre) {
-	this.nombre = nombre;
-	return this;
-    }
-
-    public int getSalas() {
-	return salas;
-    }
-
-    public Mapa setSalas(int salas) {
-	this.salas = salas;
-	return this;
-    }
-
-    @Override
-    public String toString() {
-	return "Nombre del Mapa es; " + nombre + " y tiene " + salas + " salas";
-    }
+	@Override
+	public String toString() {
+		return "Nombre del Mapa es; " + this.nombre + " y tiene " + this.salas + " salas";
+	}
 
 }
