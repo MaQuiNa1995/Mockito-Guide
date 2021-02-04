@@ -159,19 +159,18 @@ class EjemploTest extends AbstractSpringTest {
 
 		// Con varios argumentos
 
-		cadenasMock.add(CADENA);
-		cadenasMock.add(CADENA);
-		cadenasMock.add(otraCadena);
+		cadenasMock.remove(CADENA);
+		cadenasMock.remove(CADENA);
+		cadenasMock.remove(otraCadena);
 
-		Mockito.verify(cadenasMock)
-		        .add(argumentCaptor.capture());
+		Mockito.verify(cadenasMock, Mockito.times(3))
+		        .remove(argumentCaptor.capture());
 
-		Assertions.assertEquals(CADENA, argumentCaptor.getAllValues()
-		        .get(0));
-		Assertions.assertEquals(CADENA, argumentCaptor.getAllValues()
-		        .get(1));
-		Assertions.assertEquals(otraCadena, argumentCaptor.getAllValues()
-		        .get(2));
+		List<String> allValues = argumentCaptor.getAllValues();
+
+		Assertions.assertEquals(CADENA, allValues.get(0));
+		Assertions.assertEquals(CADENA, allValues.get(1));
+		Assertions.assertEquals(otraCadena, allValues.get(2));
 
 	}
 
