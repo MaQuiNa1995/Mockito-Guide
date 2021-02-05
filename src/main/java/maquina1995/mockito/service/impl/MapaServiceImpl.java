@@ -51,7 +51,7 @@ public class MapaServiceImpl implements MapaService {
 	@Override
 	public void renderizarMapa(Mapa mapa) {
 		try {
-			Thread.sleep(10L);
+			Thread.sleep(10000L);
 		} catch (InterruptedException exception) {
 			LOGGER.warn("Se ha producido una excepción al renderizar el mapa, mas info: {}", exception.getMessage());
 			Thread.currentThread()

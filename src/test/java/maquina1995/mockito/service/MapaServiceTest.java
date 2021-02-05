@@ -1,12 +1,15 @@
 package maquina1995.mockito.service;
 
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Timeout;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 
 import maquina1995.mockito.dominio.Mapa;
 
@@ -20,7 +23,7 @@ class MapaServiceTest extends AbstractSpringTest {
 	 * {@link java.util.ArrayList} y usas el add el objeto como tal no tendrá ningun
 	 * elemento
 	 */
-	@MockBean
+	@SpyBean
 	private MapaService cut;
 
 	private Mapa mapa;
@@ -34,23 +37,23 @@ class MapaServiceTest extends AbstractSpringTest {
 	}
 
 	/**
-	 * Test del metodo de {@link MapaService#renderizarMapa(Mapa)} si tarda mas de 7
-	 * segundos en ejecutarse fallará por: {@link Timeout}
+	 * Test del metodo de {@link MapaService#renderizarMapa(Mapa)} si tarda mas de 5
+	 * segundos en ejecutarse fallará por:
+	 * {@link Assertions#assertTimeout(Duration, org.junit.jupiter.api.function.Executable)}
 	 * <p>
 	 * Hemos mockeado el método para que no tenga que ejecutar el real ya que este
 	 * hace 1 espera de 10 segundos simulando un procesamiento pesado
-	 * <p>
-	 * En este caso no es necesario el uso de Assertions
 	 */
 	@Test
-	@Timeout(value = 7)
 	void renderizarMapaTest() {
 
 		Mockito.doNothing()
 		        .when(cut)
 		        .renderizarMapa(ArgumentMatchers.any(Mapa.class));
 
-		cut.renderizarMapa(mapa);
+		Duration cincoSegundos = Duration.of(5, ChronoUnit.SECONDS);
+
+		Assertions.assertTimeout(cincoSegundos, () -> cut.renderizarMapa(this.mapa));
 
 	}
 
