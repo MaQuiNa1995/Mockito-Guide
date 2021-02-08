@@ -1,4 +1,4 @@
-package maquina1995.mockito.service.impl;
+package maquina1995.mockito.service;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import maquina1995.mockito.dominio.Mapa;
 import maquina1995.mockito.exception.FicheroYaExisteException;
-import maquina1995.mockito.service.MapaService;
 
 @Service
 public class MapaServiceImpl implements MapaService {
@@ -51,7 +50,7 @@ public class MapaServiceImpl implements MapaService {
 	@Override
 	public void renderizarMapa(Mapa mapa) {
 		try {
-			Thread.sleep(10000L);
+			Thread.sleep(1000 * 1L);
 		} catch (InterruptedException exception) {
 			LOGGER.warn("Se ha producido una excepción al renderizar el mapa, mas info: {}", exception.getMessage());
 			Thread.currentThread()

@@ -1,4 +1,4 @@
-package maquina1995.mockito.service.impl;
+package maquina1995.mockito.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 
 import maquina1995.mockito.dominio.Heroe;
 import maquina1995.mockito.dominio.Monstruo;
-import maquina1995.mockito.service.MazmorraService;
-import maquina1995.mockito.service.MonstruoService;
 
 /**
  * Clase que contiene la lógica asociada a la mazmorra donde entra el

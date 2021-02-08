@@ -18,8 +18,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import maquina1995.mockito.dominio.Heroe;
 import maquina1995.mockito.dominio.Monstruo;
-import maquina1995.mockito.service.impl.MazmorraServiceImpl;
-import maquina1995.mockito.service.impl.MonstruoServiceImpl;
 
 /**
  * Clase de test para probar unitariamente la funcionalidad de:
@@ -29,7 +27,7 @@ import maquina1995.mockito.service.impl.MonstruoServiceImpl;
  * como por ejemplo:
  * <p>
  * <LI>{@link MockitoExtension} para poder usar la funcionalidad de mockito</LI>
- * <LI>{@link SpringExtension} para poder usar la inyecci�n de dependencias de
+ * <LI>{@link SpringExtension} para poder usar la inyección de dependencias de
  * spring</LI>
  * <p>
  * {@link ContextConfiguration} sirve para indicar donde se encuentra la
@@ -42,6 +40,7 @@ import maquina1995.mockito.service.impl.MonstruoServiceImpl;
  * @author MaQuiNa1995
  *
  */
+//@TestMethodOrder(OrderAnnotation.class)
 class MazmorraServiceTest extends AbstractSpringTest {
 
 	/**
@@ -95,6 +94,8 @@ class MazmorraServiceTest extends AbstractSpringTest {
 	 * 
 	 * @param monstruo {@link Monstruo} recuperado del metodo generarMonstruos()
 	 */
+//	@RepeatedTest(10), name = "{displayName} {currentRepetition}/{totalRepetitions}")
+//    @DisplayName("Repeat!")
 	@ParameterizedTest
 	@MethodSource("generarMonstruos")
 	@DisplayName("Test para probar entrarMazmorrarTest() con distintos monstruos")

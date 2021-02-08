@@ -3,16 +3,20 @@ package maquina1995.mockito.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DynamicTest;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestFactory;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 
-class EjemploTest extends AbstractSpringTest {
+class EjemploMockTest extends AbstractSpringTest {
 
 	private final String CADENA = "Soy una cadena";
 
@@ -107,6 +111,7 @@ class EjemploTest extends AbstractSpringTest {
 	// ------------------------- STUBS Real/Mock/Spy ------------------
 
 	@Test
+	@Tag("stubs")
 	void stubsTest() {
 
 		// --------------------- Real ----------------------
@@ -172,6 +177,15 @@ class EjemploTest extends AbstractSpringTest {
 		Assertions.assertEquals(CADENA, allValues.get(1));
 		Assertions.assertEquals(otraCadena, allValues.get(2));
 
+	}
+
+	@TestFactory
+	Stream<DynamicTest> translateDynamicTestsFromStream() {
+		return Stream.of(CADENA)
+		        .map(palabra -> DynamicTest.dynamicTest("Test de " + palabra, () -> {
+
+			        Assertions.assertEquals("SOY UNA CADENA", palabra.toUpperCase());
+		        }));
 	}
 
 }

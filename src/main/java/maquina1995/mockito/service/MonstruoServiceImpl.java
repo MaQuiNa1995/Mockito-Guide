@@ -1,4 +1,4 @@
-package maquina1995.mockito.service.impl;
+package maquina1995.mockito.service;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +7,6 @@ import java.util.Random;
 import org.springframework.stereotype.Service;
 
 import maquina1995.mockito.dominio.Monstruo;
-import maquina1995.mockito.service.MonstruoService;
 
 @Service
 public class MonstruoServiceImpl implements MonstruoService {
