@@ -8,6 +8,7 @@ import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 
+import maquina1995.mockito.config.AbstractSpringTest;
 import maquina1995.mockito.dominio.Monstruo;
 
 class MonstruoServiceTest extends AbstractSpringTest {

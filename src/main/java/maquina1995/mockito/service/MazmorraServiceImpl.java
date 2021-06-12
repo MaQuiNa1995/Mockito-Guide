@@ -31,8 +31,8 @@ public class MazmorraServiceImpl implements MazmorraService {
 
 		Monstruo monstruo = monstruoService.cogerMonstruoRandom();
 
-		combatir(heroe, monstruo);
-		subirExperiencia(heroe, monstruo.getExperiencia());
+		this.combatir(heroe, monstruo);
+		this.subirExperiencia(heroe, monstruo.getExperiencia());
 
 		return heroe;
 	}

@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 
+import maquina1995.mockito.config.AbstractSpringTest;
 import maquina1995.mockito.dominio.Mapa;
 
 class MapaServiceTest extends AbstractSpringTest {
@@ -45,6 +46,7 @@ class MapaServiceTest extends AbstractSpringTest {
 	 * hace 1 espera de 10 segundos simulando un procesamiento pesado
 	 */
 	@Test
+//	@Timeout ( unit = TimeUnit.SECONDS, value = 9 )
 	void renderizarMapaTest() {
 
 		Mockito.doNothing()
@@ -54,6 +56,7 @@ class MapaServiceTest extends AbstractSpringTest {
 		Duration cincoSegundos = Duration.of(5, ChronoUnit.SECONDS);
 
 		Assertions.assertTimeout(cincoSegundos, () -> cut.renderizarMapa(this.mapa));
+//		cut.renderizarMapa ( this.mapa );
 
 	}
 

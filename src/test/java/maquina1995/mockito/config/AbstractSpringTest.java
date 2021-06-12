@@ -1,4 +1,4 @@
-package maquina1995.mockito.service;
+package maquina1995.mockito.config;
 
 import org.springframework.boot.test.context.SpringBootTest;
 

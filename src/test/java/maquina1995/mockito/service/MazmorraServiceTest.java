@@ -16,6 +16,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import maquina1995.mockito.config.AbstractSpringTest;
 import maquina1995.mockito.dominio.Heroe;
 import maquina1995.mockito.dominio.Monstruo;
 

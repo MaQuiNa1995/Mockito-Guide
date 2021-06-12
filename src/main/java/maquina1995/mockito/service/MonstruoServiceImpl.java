@@ -14,14 +14,7 @@ public class MonstruoServiceImpl implements MonstruoService {
 	/**
 	 * Lista que contiene la lista de mounstruos
 	 */
-	private final List<Monstruo> listaMonstruos;
-
-	/**
-	 * Constructor por defecto en el que se rellena la lista de mounstruos
-	 */
-	public MonstruoServiceImpl() {
-		this.listaMonstruos = this.crearMonstruos();
-	}
+	private final List<Monstruo> listaMonstruos = this.crearMonstruos();
 
 	@Override
 	public Monstruo cogerMonstruoRandom() {

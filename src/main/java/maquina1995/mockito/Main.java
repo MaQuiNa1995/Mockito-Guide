@@ -1,4 +1,4 @@
-package maquina1995.mockito.main;
+package maquina1995.mockito;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
