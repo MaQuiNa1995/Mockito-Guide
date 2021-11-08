@@ -12,11 +12,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import maquina1995.mockito.config.AbstractSpringTest;
 import maquina1995.mockito.dominio.Heroe;
 import maquina1995.mockito.dominio.Monstruo;
 
@@ -42,7 +42,8 @@ import maquina1995.mockito.dominio.Monstruo;
  *
  */
 //@TestMethodOrder(OrderAnnotation.class)
-class MazmorraServiceTest extends AbstractSpringTest {
+@SpringBootTest
+class MazmorraServiceTest {
 
 	/**
 	 * Sirve para hacer mocks de objetos para ser usados con mockito

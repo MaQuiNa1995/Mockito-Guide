@@ -9,12 +9,13 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 
-import maquina1995.mockito.config.AbstractSpringTest;
 import maquina1995.mockito.dominio.Mapa;
 
-class MapaServiceTest extends AbstractSpringTest {
+@SpringBootTest
+class MapaServiceTest {
 
 	/**
 	 * Sirve para crear una instancia basica del objeto {@link MapaService} en el
