@@ -13,6 +13,10 @@
 	<artifactId>mockito</artifactId>
 	<version>1.0.0</version>
 	<modelVersion>4.0.0</modelVersion>
+	
+	<properties>
+		<jacoco.plugin.version>0.8.7</jacoco.plugin.version>
+	</properties>
 
 	<dependencies>
 		<!-- Spring Boot -->
