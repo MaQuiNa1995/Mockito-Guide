@@ -11,22 +11,22 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 
 @SpringBootTest
-class EjemploMockTest {
+class SimpleMockTest {
 
 	private final String CADENA = "Soy una cadena";
 
 	private List<String> cadenaReal = new ArrayList<>();
 
-	@Mock // @MockBean
+	@MockBean // @Mock
 	private List<String> cadenasMock;
 
-	@Spy // @Spybean
+	@SpyBean // Spy 
 	private List<String> cadenasSpy = new ArrayList<>();
 
 	@Captor

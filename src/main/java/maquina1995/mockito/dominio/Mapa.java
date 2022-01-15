@@ -1,7 +1,10 @@
 package maquina1995.mockito.dominio;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -11,11 +14,13 @@ import lombok.Setter;
  * traves de una concatenación de setters en una sola línea
  * 
  * @author MaQuiNa1995
- *
  */
-@Builder
 @Setter
 @Getter
+@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Mapa {
 
 	/**
